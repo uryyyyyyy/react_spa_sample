@@ -1,18 +1,28 @@
 /** @jsx React.DOM */
 
 var CKEditor = React.createClass({
+    getInitialState: function () {
+        return {
+            ckeditor: null,
+            id:random()
+        };
+    },
+    shouldComponentUpdate: function(nextProps, nextState) {
+        return false;
+    },
     changeFunc: function(e){
-        this.props.onChange(e.target.value);
+        var cke = this.state.ckeditor.getData();
+        this.props.onChange(cke);
+    },
+    componentWillUnmount : function() {
+        this.state.ckeditor.destroy();
     },
     componentDidMount : function() {
-        this.setState({$selector:$(this.getDOMNode())});
-        this.state.$selector.on("change", this.changeFunc);
+        this.setState({ckeditor: CKEDITOR.replace(this.state.id)});
+        this.state.ckeditor.setData(this.props.text);
+        this.state.ckeditor.on('change', this.changeFunc);
     },
     render: function() {
-        return <textarea
-        className="ckeditor"
-        name="editor1"
-        value= {this.props.text}>
-        </textarea>;
+        return <textarea id={this.state.id}></textarea>;
     }
 });
