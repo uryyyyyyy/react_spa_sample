@@ -19,6 +19,10 @@ jQuery(function() {
             console.log('access to #/components/select2');
             React.render(<Select2Page />, $content);
         });
+        app.get('#/components/ckeditor', function(context) {
+            console.log('access to #/components/ckeditor');
+            React.render(<CKEditorPage />, $content);
+        });
 
         app.notFound = function(context) {
             console.log('access to #');
