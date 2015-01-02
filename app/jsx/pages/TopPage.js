@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var MarkdownPage = React.createClass({
+var TopPage = React.createClass({
   render: function() {
     return (
         <CommentBox />
