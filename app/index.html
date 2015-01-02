@@ -1,0 +1,70 @@
+<!doctype html>
+<html id="SimpleWebDevTool">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endbower -->
+
+    <!-- build:css styles.min.css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endbuild -->
+    <!-- other CSS -->
+    <!-- other end -->
+</head>
+<body>
+
+    <!-- Add your site or application content here -->
+    <section class="container">
+        <header class="navbar navbar-default">
+            <a class="navbar-brand" href="#">SimpleWebDevTool</a>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#/component/button">button</a></li>
+                        <li><a href="#/component/jsTree">jsTree</a></li>
+                        <li><a href="#/component/dialog">dialog</a></li>
+                        <li><a href="#/component/ckEditor">ckEditor</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Not Yet</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    </ul>
+                </li>
+            </ul>
+            <section id="login_logout_form" class="navbar-form navbar-right"></section>
+        </header>
+
+        <!--for content-->
+        <section id="content" class="container">TOP Page</section>
+
+        <footer class="footer">
+            <p> supported by uryyyyyyy </p>
+        </footer>
+    </section>
+
+    <!-- [shiba] bower_components are depend each relative-path complicated, so these cannot be minify -->
+    <!-- bower:js -->
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/sammy/lib/min/sammy-0.7.6.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- endbower -->
+
+    <!-- other library -->
+    <!-- library end -->
+
+    <!-- build:js scripts.min.js -->
+    <script src="js/appRoute.js"></script>
+    <script src="js/components/CommentBox.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

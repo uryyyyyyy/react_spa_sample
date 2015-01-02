@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "authors": [
+    "shiba <koki305@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.12.2",
+    "jquery": "~2.1.3",
+    "sammy": "~0.7.6",
+    "bootstrap": "~3.3.1"
+  }
+}
