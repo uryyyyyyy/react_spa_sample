@@ -26,14 +26,6 @@ gulp.task('watchJsx', function () {
     gulp.watch('app/jsx/**/*.js', ["compileJsx"]);
 });
 
-gulp.task('usemin', function() {
-    gulp.src('app/index.html')
-    .pipe(usemin({
-        js:[uglify()]
-    }))
-    .pipe(gulp.dest('build/'));
-});
-
 gulp.task('build_', ['cleanBuild', 'compileJsx'], function () {
     gulp.src('app/index.html')
     .pipe(usemin({
