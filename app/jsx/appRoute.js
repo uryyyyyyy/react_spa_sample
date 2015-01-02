@@ -15,6 +15,10 @@ jQuery(function() {
             console.log('access to #/components/modalDialog');
             React.render(<DialogPage />, $content);
         });
+        app.get('#/components/select2', function(context) {
+            console.log('access to #/components/select2');
+            React.render(<Select2Page />, $content);
+        });
 
         app.notFound = function(context) {
             console.log('access to #');
