@@ -23,6 +23,10 @@ jQuery(function() {
             console.log('access to #/components/ckeditor');
             React.render(<CKEditorPage />, $content);
         });
+        app.get('#/components/reactable', function(context) {
+            console.log('access to #/components/reactable');
+            React.render(<ReactablePage />, $content);
+        });
 
         app.notFound = function(context) {
             console.log('access to #');
