@@ -18,9 +18,10 @@ var CKEditor = React.createClass({
         this.state.ckeditor.destroy();
     },
     componentDidMount : function() {
-        this.setState({ckeditor: CKEDITOR.replace(this.state.id)});
-        this.state.ckeditor.setData(this.props.text);
-        this.state.ckeditor.on('change', this.changeFunc);
+        var cke = CKEDITOR.replace(this.state.id)
+        cke.setData(this.props.text);
+        cke.on('change', this.changeFunc);
+        this.setState({ckeditor: cke});
     },
     render: function() {
         return <textarea id={this.state.id}></textarea>;

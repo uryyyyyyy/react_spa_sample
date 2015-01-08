@@ -21,6 +21,7 @@
     "marked": "~0.3.2",
     "select2": "~3.5.2",
     "ckeditor": "~4.4.6",
-    "reactable": "~0.9.3"
+    "reactable": "~0.9.3",
+    "react-router": "~0.11.6"
   }
 }

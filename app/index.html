@@ -19,78 +19,49 @@
     <!-- other end -->
 </head>
 <body>
-
-    <!-- Add your site or application content here -->
-    <section class="container">
-        <header class="navbar navbar-default">
-            <a class="navbar-brand" href="#">SimpleWebDevTool</a>
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#/components/button">button</a></li>
-                        <li><a href="#/components/modalDialog">modalDialog</a></li>
-                        <li><a href="#/components/select2">select2</a></li>
-                        <li><a href="#/components/markdown">markdown</a></li>
-                        <li><a href="#/components/ckeditor">CKEditor</a></li>
-                        <li><a href="#/components/reactable">reactable</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Not Yet</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                    </ul>
-                </li>
-            </ul>
-            <section id="login_logout_form" class="navbar-form navbar-right"></section>
-        </header>
-
-        <!--for content-->
-        <div id="content" class="container"></div>
-
-        <footer class="footer">
-            <p> supported by uryyyyyyy </p>
-        </footer>
-    </section>
-
-    <!-- [uryyyyyyy] bower_components are depend each relative-path complicated, so these cannot be minify -->
-    <!-- bower:js -->
-    <script src="bower_components/react/react.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/sammy/lib/min/sammy-0.7.6.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/marked/lib/marked.js"></script>
-    <script src="bower_components/select2/select2.min.js"></script>
-    <script src="bower_components/ckeditor/ckeditor.js"></script>
-    <script src="bower_components/reactable/build/reactable.js"></script>
-    <!-- endbower -->
-
-    <!-- other library -->
-    <!-- library end -->
-
-    <!-- build:js scripts.min.js -->
-    <script src="js/appRoute.js"></script>
-    <script src="js/pages/TopPage.js"></script>
-    <script src="js/pages/ButtonPage.js"></script>
-    <script src="js/pages/MarkdownPage.js"></script>
-    <script src="js/pages/DialogPage.js"></script>
-    <script src="js/pages/Select2Page.js"></script>
-    <script src="js/pages/CKEditorPage.js"></script>
-    <script src="js/pages/ReactablePage.js"></script>
-
-    <script src="js/components/CommentBox.js"></script>
-    <script src="js/components/PrimaryButton.js"></script>
-    <script src="js/components/TextArea.js"></script>
-    <script src="js/components/PTag.js"></script>
-    <script src="js/components/RowHtml.js"></script>
-    <script src="js/components/ModalDialog.js"></script>
-    <script src="js/components/Select2Sample.js"></script>
-    <script src="js/components/CKEditor.js"></script>
-    <script src="js/components/ReactableSample.js"></script>
-
-    <script src="js/util/util.js"></script>
-    <!-- endbuild -->
 </body>
+
+<!-- [uryyyyyyy] bower_components are depend each relative-path complicated, so these cannot be minify -->
+<!-- bower:js -->
+<script src="bower_components/react/react.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/sammy/lib/min/sammy-0.7.6.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/marked/lib/marked.js"></script>
+<script src="bower_components/select2/select2.min.js"></script>
+<script src="bower_components/ckeditor/ckeditor.js"></script>
+<script src="bower_components/reactable/build/reactable.js"></script>
+<script src="bower_components/react-router/dist/react-router.js"></script>
+<!-- endbower -->
+
+<!-- other library -->
+<!-- library end -->
+
+<!-- build:js scripts.min.js -->
+
+<script src="js/pages/TopPage.js"></script>
+<script src="js/pages/ButtonPage.js"></script>
+<script src="js/pages/MarkdownPage.js"></script>
+<script src="js/pages/DialogPage.js"></script>
+<script src="js/pages/Select2Page.js"></script>
+<script src="js/pages/CKEditorPage.js"></script>
+<script src="js/pages/ReactablePage.js"></script>
+<script src="js/pages/NotFoundPage.js"></script>
+
+<script src="js/components/CommentBox.js"></script>
+<script src="js/components/PrimaryButton.js"></script>
+<script src="js/components/TextArea.js"></script>
+<script src="js/components/PTag.js"></script>
+<script src="js/components/RowHtml.js"></script>
+<script src="js/components/ModalDialog.js"></script>
+<script src="js/components/Select2Sample.js"></script>
+<script src="js/components/CKEditor.js"></script>
+<script src="js/components/ReactableSample.js"></script>
+
+<script src="js/util/util.js"></script>
+<script src="js/pages/AppTemplate.js"></script>
+<script src="js/pages/ComponentsTemplate.js"></script>
+
+<script src="js/appRoute.js"></script>
+<!-- endbuild -->
 </html>
