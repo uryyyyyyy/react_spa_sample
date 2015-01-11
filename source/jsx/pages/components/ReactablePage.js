@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+//XXX Reactable is not support react v0.12
 var ReactablePage = React.createClass({
     getInitialState: function () {
         return {data : [

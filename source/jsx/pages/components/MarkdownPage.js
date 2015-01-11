@@ -11,7 +11,7 @@ var MarkdownPage = React.createClass({
         return (
             <div>
             <TextArea text={this.state.text} onChange={this.changeText} />
-            <RowHtml text={rawMarkUp} />
+            <div dangerouslySetInnerHTML={{__html: rawMarkUp}} />
             </div>
         );
     }

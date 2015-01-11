@@ -10,7 +10,7 @@ var Select2Page = React.createClass({
     render: function() {
         return <div className="commentBox">
         <Select2Sample field={this.state.field} onChange={this.changeText} />
-        <PTag text={this.state.field} />
+        <p children={this.state.field} />
         <Select2Sample field={this.state.field} onChange={this.changeText} />
         </div>;
     }

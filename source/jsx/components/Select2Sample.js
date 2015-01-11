@@ -5,11 +5,9 @@ var Select2Sample = React.createClass({
         return {$selector : null};
     },
     changeFunc : function(e){
-        console.log('select2 changed');
         this.props.onChange(this.state.$selector.select2('data'));
     },
     componentDidMount : function() {
-        console.log("initialize select2");
         var initData = [
             {id: "Pete Hunt", text: "select1"},
             {id: "Jordan Walke", text: "select2"}];
@@ -21,7 +19,6 @@ var Select2Sample = React.createClass({
         $selector.on("change", this.changeFunc);
     },
     render: function() {
-        console.log("recreate select2");
         if(this.state.$selector){
             this.state.$selector.select2('val', this.props.field.id);
         }

@@ -11,13 +11,11 @@ var ComponentManu = React.createClass({
             </a>
             <ul className="dropdown-menu" role="menu">
             <li><a href="#/components/button">button</a></li>
-            <li><a href="#/components/modalDialog">modalDialog</a></li>
+            <li><a href="#/components/dialog">modalDialog</a></li>
             <li><a href="#/components/select2">select2</a></li>
             <li><a href="#/components/markdown">markdown</a></li>
-            <li><a href="#/components/ckeditor">CKEditor</a></li>
+            <li><a href="#/components/CKEditor">CKEditor</a></li>
             <li><a href="#/components/reactable">reactable</a></li>
-            <li className="divider"></li>
-            <li><a href="#">Not Yet</a></li>
             </ul>
             </li>
         );

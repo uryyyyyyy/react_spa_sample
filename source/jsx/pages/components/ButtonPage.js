@@ -12,9 +12,11 @@ var ButtonPage = React.createClass({
     render: function() {
         return (
             <div>
-                <PrimaryButton text="up button" onClick={this.countUp} />
-                <PrimaryButton text="down button" onClick={this.countDown} />
-                <PTag text={"count : " + this.state.count} />
+                <ReactBootstrap.Button bsStyle="primary"
+                children="up button" onClick={this.countUp} />
+                <ReactBootstrap.Button bsStyle="primary"
+                children="down button" onClick={this.countDown} />
+                <p children={"count : " + this.state.count} />
             </div>
         );
     }

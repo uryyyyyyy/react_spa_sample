@@ -7,7 +7,7 @@ var AppTemplate = React.createClass({
             <a className="navbar-brand" href="#" children='Sample' />
             <ul className="nav navbar-nav">
                 <ComponentManu />
-                <OtherManu />
+                <SamplesManu />
             </ul>
             <LoginLogout />
             </header>

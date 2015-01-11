@@ -2,7 +2,7 @@
 var NotFoundPage = React.createClass({
     render: function() {
         return (
-            <PTag text="404 not found"/>
+            <p children="404 not found"/>
         );
     }
 });

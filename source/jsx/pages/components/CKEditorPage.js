@@ -10,7 +10,7 @@ var CKEditorPage = React.createClass({
         return (
             <div>
             <CKEditor text={this.state.text} onChange={this.changeText} />
-            <PTag text={this.state.text} />
+            <p children={this.state.text} />
             </div>
         );
     }
