@@ -1,9 +1,6 @@
 /** @jsx React.DOM */
 var ComponentsTemplate = React.createClass({
     mixins: [ ReactRouter.State ],
-    getInitialState: function() {
-        return {activeComponent: ''};
-    },
     checkActive: function(selecter, selectedComponent){
         return (selecter === selectedComponent)?
         "list-group-item active" : "list-group-item"

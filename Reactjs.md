@@ -48,3 +48,9 @@ http://facebook.github.io/react/downloads.html#npm
 http://prometheusresearch.github.io/react-forms/examples/undo.html
 
 https://github.com/prometheusresearch/react-forms
+
+
+
+## npm
+
+npm install -g easymock gulp

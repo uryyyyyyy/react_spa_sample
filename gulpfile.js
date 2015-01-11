@@ -6,9 +6,22 @@ var webserver = require('gulp-webserver');
 var rename = require ('gulp-rename');
 var usemin = require('gulp-usemin');
 var minifyCSS = require('gulp-minify-css');
+var easymock = require('easymock');
 
 gulp.task('cleanBuild', function (cb) {
     rimraf('./build', cb);
+});
+
+gulp.task('easymock', function () {
+    var MockServer = easymock.MockServer;
+    var options = {
+        keepalive: true,
+        port: 3000,
+        path: './webAPI',
+    };
+    var server = new MockServer(options);
+    console.log('Starting easymock server');
+    server.start();
 });
 
 gulp.task('cleanJs', function (cb) {
@@ -43,12 +56,16 @@ gulp.task('build_', ['cleanBuild', 'compileJsx', 'copyBower'], function () {
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('appServer', function() {
-    gulp.src('./app')
+gulp.task('appServer', ['easymock'], function() {
+    gulp.src('./')
     .pipe(webserver({
         livereload: true,
         directoryListing: false,
-        open: false
+        open: false,
+        proxies: [{
+            source: '/webAPI',
+            target: 'http://localhost:3000/'
+        }]
     }));
 });
 
