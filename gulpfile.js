@@ -1,54 +1,58 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var react = require('gulp-react');
-var rimraf = require('rimraf');
-var webserver = require('gulp-webserver');
-var rename = require ('gulp-rename');
-var usemin = require('gulp-usemin');
-var minifyCSS = require('gulp-minify-css');
-var easymock = require('easymock');
+var JSX_PATH = './source/jsx/**/*.js';
+var JS_DEST = './dev/js';
+var BOWER_PATH = './dev/bower_components/**';
+var BOWER_DEST = './build/bower_components/';
+var DEV_PATH = './dev/';
+var BUILD_PATH = './build/';
 
 gulp.task('cleanBuild', function (cb) {
+    var rimraf = require('rimraf');
     rimraf('./build', cb);
 });
 
+gulp.task('cleanJs', function (cb) {
+    var rimraf = require('rimraf');
+    rimraf(JS_DEST, cb);
+});
+
+gulp.task('cleanBower', function (cb) {
+    var rimraf = require('rimraf');
+    rimraf('build/bower_components', cb);
+});
+
 gulp.task('easymock', function () {
-    var MockServer = easymock.MockServer;
+    var MockServer = require('easymock').MockServer;
     var options = {
         keepalive: true,
         port: 3000,
         path: './webAPI',
     };
     var server = new MockServer(options);
-    console.log('Starting easymock server');
     server.start();
 });
 
-gulp.task('cleanJs', function (cb) {
-    rimraf('app/js', cb);
-});
-
-gulp.task('cleanBower', function (cb) {
-    rimraf('build/bower_components', cb);
-});
-
-gulp.task('compileJsx', ['cleanJs'], function () {
-    return gulp.src('app/jsx/**/*.js')
+gulp.task('jsxToJs', ['cleanJs'], function () {
+    var react = require('gulp-react');
+    return gulp.src(JSX_PATH)
     .pipe(react())
-    .pipe(gulp.dest('app/js/'));
+    .pipe(gulp.dest(JS_DEST));
 });
 
 gulp.task('watchJsx', function () {
-    gulp.watch('app/jsx/**/*.js', ["compileJsx"]);
+    gulp.watch(JSX_PATH, ["jsxToJs"]);
 });
 
 gulp.task('copyBower', ['cleanBower'], function () {
-    return gulp.src('app/bower_components/**')
-    .pipe(gulp.dest('build/bower_components'));
+    return gulp.src(BOWER_PATH)
+    .pipe(gulp.dest(BOWER_DEST));
 });
 
-gulp.task('build_', ['cleanBuild', 'compileJsx', 'copyBower'], function () {
-    gulp.src('app/index.html')
+gulp.task('build', ['cleanBuild', 'jsxToJs', 'copyBower'], function () {
+    var minifyCSS = require('gulp-minify-css');
+    var uglify = require('gulp-uglify');
+    var usemin = require('gulp-usemin');
+    gulp.src('dev/index.html')
     .pipe(usemin({
         js:[uglify()],
         css:[minifyCSS()]
@@ -56,8 +60,9 @@ gulp.task('build_', ['cleanBuild', 'compileJsx', 'copyBower'], function () {
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('appServer', ['easymock'], function() {
-    gulp.src('./')
+gulp.task('devServer', ['easymock'], function() {
+    var webserver = require('gulp-webserver');
+    gulp.src(DEV_PATH)
     .pipe(webserver({
         livereload: true,
         directoryListing: false,
@@ -69,15 +74,19 @@ gulp.task('appServer', ['easymock'], function() {
     }));
 });
 
-gulp.task('buildServer', function() {
-    gulp.src('./build')
+gulp.task('buildServer', ['build', 'easymock'], function() {
+    var webserver = require('gulp-webserver');
+    gulp.src(BUILD_PATH)
     .pipe(webserver({
-        livereload: true,
+        livereload: false,
         directoryListing: false,
-        open: false
+        open: false,
+        proxies: [{
+            source: '/webAPI',
+            target: 'http://localhost:3000/'
+        }]
     }));
 });
 
-gulp.task("dev-server", ["appServer", "watchJsx"]);
-gulp.task("build", ["build_"]);
+gulp.task("dev-server", ["devServer", "watchJsx"]);
 gulp.task("build-server", ["buildServer"]);

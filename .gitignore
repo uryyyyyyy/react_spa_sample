@@ -1,4 +1,5 @@
 node_modules/
 build/
 bower_components/
-app/js/
+dev/js/
+access_logs.db
