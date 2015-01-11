@@ -1,11 +1,11 @@
 
 var routes = (
-    <ReactRouter.Route name="app" path="/" handler={AppTemplate}>
-        <ReactRouter.Route name="components/"
-            path="components/:component"
+    <ReactRouter.Route name='app' path='/' handler={AppTemplate}>
+        <ReactRouter.Route name='components/'
+            path='components/:component'
             handler={ComponentsTemplate} />
-        <ReactRouter.Route name="samples/"
-            path="samples/:page"
+        <ReactRouter.Route name='samples/'
+            path='samples/:page'
             handler={SamplesTemplate} />
         <ReactRouter.NotFoundRoute handler={NotFoundPage}/>
     </ReactRouter.Route>

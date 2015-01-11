@@ -18,7 +18,7 @@ var CKEditor = React.createClass({
         this.state.ckeditor.destroy();
     },
     componentDidMount : function() {
-        var cke = CKEDITOR.replace(this.state.id)
+        var cke = CKEDITOR.replace(this.state.id);
         cke.setData(this.props.text);
         cke.on('change', this.changeFunc);
         this.setState({ckeditor: cke});

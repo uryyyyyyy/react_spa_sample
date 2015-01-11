@@ -9,14 +9,14 @@ var Select2Sample = React.createClass({
     },
     componentDidMount : function() {
         var initData = [
-            {id: "Pete Hunt", text: "select1"},
-            {id: "Jordan Walke", text: "select2"}];
+            {id: 'Pete Hunt', text: 'select1'},
+            {id: 'Jordan Walke', text: 'select2'}];
             //when real dom is created, $selector is desided
-        var $selector = $(this.getDOMNode())
+        var $selector = $(this.getDOMNode());
         this.setState({$selector:$selector});
         $selector.select2({data: initData});
         $selector.select2('val', initData[0].id);
-        $selector.on("change", this.changeFunc);
+        $selector.on('change', this.changeFunc);
     },
     render: function() {
         if(this.state.$selector){
@@ -25,6 +25,6 @@ var Select2Sample = React.createClass({
         var thisStyle = {
             width:'300px'
         };
-        return <input type="hidden" style={thisStyle}></input>;
+        return <input type='hidden' style={thisStyle}></input>;
     }
 });

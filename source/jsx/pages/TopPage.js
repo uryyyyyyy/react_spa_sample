@@ -2,7 +2,7 @@
 var TopPage = React.createClass({
   render: function() {
     return (
-        <CommentBox />
+        <p children='Top Page'/>
     );
   }
 });

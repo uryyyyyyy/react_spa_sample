@@ -24,12 +24,12 @@ var LoginForm = React.createClass({
     },
     render: function() {
         return (
-            <div className="navbar-form navbar-right">
-            <TextForm text={this.state.userId} type="text"
-            placeholder="User ID" onChange={this.changeUserId}/>
-            <TextForm text={this.state.pass} type="password"
-            placeholder="Password" onChange={this.changePass}/>
-            <ReactBootstrap.Button bsStyle="primary"
+            <div className='navbar-form navbar-right'>
+            <TextForm text={this.state.userId} type='text'
+            placeholder='User ID' onChange={this.changeUserId}/>
+            <TextForm text={this.state.pass} type='password'
+            placeholder='Password' onChange={this.changePass}/>
+            <ReactBootstrap.Button bsStyle='primary'
             children='Sign in' onClick={this.login}/>
             </div>
         );

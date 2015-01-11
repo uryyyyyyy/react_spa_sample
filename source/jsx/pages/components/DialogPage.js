@@ -6,9 +6,9 @@ var DialogPage = React.createClass({
     render: function() {
         return (
             <div>
-                <ReactBootstrap.Button bsStyle="primary"
-                children="dialog open" onClick={this.open} />
-                <ModalDialog ref="modal" title={"Title dayo"} />
+                <ReactBootstrap.Button bsStyle='primary'
+                children='dialog open' onClick={this.open} />
+                <ModalDialog ref='modal' title={'Title dayo'} />
             </div>
         );
     }

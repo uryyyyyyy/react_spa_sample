@@ -9,7 +9,7 @@ var TextForm = React.createClass({
             type={this.props.type}
             value={this.props.text}
             placeholder={this.props.placeholder}
-            className="form-control"
+            className='form-control'
             onChange={this.onChange}>
             </input>;
     }

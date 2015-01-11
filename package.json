@@ -18,6 +18,7 @@
     "gulp-usemin": "~0.3.8",
     "gulp-minify-css": "~0.3.11",
     "gulp-copy": "0.0.2",
-    "easymock": "~0.2.9"
+    "easymock": "~0.2.9",
+    "gulp-jshint": "~1.9.0"
   }
 }

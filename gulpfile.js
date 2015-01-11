@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var JSX_PATH = './source/jsx/**/*.js';
+var JS_PATH = './dev/js/**/*.js';
 var JS_DEST = './dev/js';
 var BOWER_PATH = './dev/bower_components/**';
 var BOWER_DEST = './build/bower_components/';
@@ -16,9 +17,11 @@ gulp.task('cleanJs', function (cb) {
     rimraf(JS_DEST, cb);
 });
 
-gulp.task('cleanBower', function (cb) {
-    var rimraf = require('rimraf');
-    rimraf('build/bower_components', cb);
+gulp.task('jshint', function() {
+    var jshint = require('gulp-jshint');
+    return gulp.src(JS_PATH)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('easymock', function () {
@@ -43,12 +46,12 @@ gulp.task('watchJsx', function () {
     gulp.watch(JSX_PATH, ["jsxToJs"]);
 });
 
-gulp.task('copyBower', ['cleanBower'], function () {
+gulp.task('copyBower', ['cleanBuild'], function () {
     return gulp.src(BOWER_PATH)
     .pipe(gulp.dest(BOWER_DEST));
 });
 
-gulp.task('build', ['cleanBuild', 'jsxToJs', 'copyBower'], function () {
+gulp.task('build', ['copyBower', 'jsxToJs'], function () {
     var minifyCSS = require('gulp-minify-css');
     var uglify = require('gulp-uglify');
     var usemin = require('gulp-usemin');

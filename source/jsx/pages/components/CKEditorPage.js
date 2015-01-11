@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var CKEditorPage = React.createClass({
     getInitialState: function () {
-        return { text: "*initialState*"  };
+        return { text: '*initialState*'  };
     },
     changeText: function (text) {
         this.setState( {text: text });

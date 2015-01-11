@@ -21,16 +21,16 @@ var ModalDialog = React.createClass({
     },
     render: function() {
         return (
-            <div className="modal fade">
-            <div className="modal-dialog">
-            <div className="modal-content">
-            <div className="modal-header">
+            <div className='modal fade'>
+            <div className='modal-dialog'>
+            <div className='modal-content'>
+            <div className='modal-header'>
             <h3>{this.props.title}</h3>
             </div>
-            <div className="modal-body">
+            <div className='modal-body'>
         {this.props.dialogBody}
             </div>
-            <div className="modal-footer">
+            <div className='modal-footer'>
         {this.props.dialogFooter}
             </div>
             </div>

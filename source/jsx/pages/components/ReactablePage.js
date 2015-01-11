@@ -12,7 +12,7 @@ var ReactablePage = React.createClass({
     render: function() {
         return(
             <Reactable.Table
-            className="table-bordered col-md-8"
+            className='table-bordered col-md-8'
             data={this.state.data}
             itemsPerPage={4}
             sortable={['Age','Position']}
