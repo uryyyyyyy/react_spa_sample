@@ -8,7 +8,7 @@ var random = function(){
 		text += possible.charAt(Math.floor(Math.random() * possible.length));
 
 	return text;
-}
+};
 
 util.getAjaxAsync = function(url) {
 	'use strict';
@@ -35,12 +35,10 @@ util.getAjaxSync = function(url) {
 	return response;
 };
 
-
 util.postAjaxAsync = function(url, reqData) {
 	'use strict';
 	console.log('POST url:' + url);
 	console.log(reqData);
-	var util = G.util;
 	return $.ajax({
 		type: 'POST',
 		url: url,
@@ -61,4 +59,21 @@ util.postFileAsync = function(url, file) {
 		processData : false, //specification (not allow jQuery to exec data)
 		contentType : false //specification
 	});
+};
+
+util.showServerMessage = function(response) {
+	'use strict';
+	var title = response.title;
+	var message = response.message;
+	console.log('title:'+title + ' message:'+message);
+	$.toaster({ priority : 'success', title : response.title, message : response.message });
+};
+
+util.showServerError = function(response) {
+	'use strict';
+	var title = response.title || 'Server Error';
+	var message = response.message || 'unknown Error was happened';
+	console.log(response);
+	console.log('title:'+title + ' message:'+message);
+	$.toaster({ priority : 'danger', title : title, message : message });
 };

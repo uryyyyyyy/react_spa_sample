@@ -10,7 +10,12 @@ var ReactablePage = React.createClass({
     },
     render: function() {
         return(
-            <ReactableSample data={this.state.data} />
+            <Reactable.Table
+            className="table-bordered col-md-8"
+            data={this.state.data}
+            itemsPerPage={4}
+            sortable={['Age','Position']}
+            filterable={['Name', 'Age', 'Position']} />
         );
     }
 });

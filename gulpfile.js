@@ -4,11 +4,11 @@ var JS_DEST = './dev/js';
 var BOWER_PATH = './dev/bower_components/**';
 var BOWER_DEST = './build/bower_components/';
 var DEV_PATH = './dev/';
-var BUILD_PATH = './build/';
+var BUILD_DEST = './build/';
 
 gulp.task('cleanBuild', function (cb) {
     var rimraf = require('rimraf');
-    rimraf('./build', cb);
+    rimraf(BUILD_DEST, cb);
 });
 
 gulp.task('cleanJs', function (cb) {
@@ -57,7 +57,7 @@ gulp.task('build', ['cleanBuild', 'jsxToJs', 'copyBower'], function () {
         js:[uglify()],
         css:[minifyCSS()]
     }))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest(BUILD_DEST));
 });
 
 gulp.task('devServer', ['easymock'], function() {
@@ -76,7 +76,7 @@ gulp.task('devServer', ['easymock'], function() {
 
 gulp.task('buildServer', ['build', 'easymock'], function() {
     var webserver = require('gulp-webserver');
-    gulp.src(BUILD_PATH)
+    gulp.src(BUILD_DEST)
     .pipe(webserver({
         livereload: false,
         directoryListing: false,

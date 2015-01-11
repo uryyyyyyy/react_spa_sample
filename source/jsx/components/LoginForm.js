@@ -5,7 +5,7 @@ var LoginForm = React.createClass({
     getInitialState: function() {
         return {
             userId: '',
-            pass:''
+            pass: ''
         };
     },
     changeUserId: function (text) {
@@ -20,18 +20,17 @@ var LoginForm = React.createClass({
             pass: this.state.pass
         };
         var promise = util.postAjaxAsync('webAPI/login', loginData);
-        promise.then(util.showOkMsg, util.showNgMsg);
-        //.then(setLogoutForm);
+        promise.then(this.props.login, util.showServerError);
     },
     render: function() {
         return (
-            <div>
+            <div className="navbar-form navbar-right">
             <TextForm text={this.state.userId} type="text"
             placeholder="User ID" onChange={this.changeUserId}/>
             <TextForm text={this.state.pass} type="password"
             placeholder="Password" onChange={this.changePass}/>
-            <ReactBootstrap.Button bsStyle="primary" children='Sign in'
-            onClick={this.login}/>
+            <ReactBootstrap.Button bsStyle="primary"
+            children='Sign in' onClick={this.login}/>
             </div>
         );
     }

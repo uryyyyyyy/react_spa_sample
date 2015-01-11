@@ -11,7 +11,7 @@ var ModalDialog = React.createClass({
             keyboard: true,
             show: false
         };
-        this.state.$selector.modal(options);
+        $(this.getDOMNode()).modal(options);
     },
     open: function() {
         this.state.$selector.modal('show');

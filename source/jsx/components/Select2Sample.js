@@ -12,13 +12,13 @@ var Select2Sample = React.createClass({
         console.log("initialize select2");
         var initData = [
             {id: "Pete Hunt", text: "select1"},
-            {id: "Jordan Walke", text: "select2"}
-        ];
-    //when real dom is created, $selector is desided
-        this.setState({$selector:$(this.getDOMNode())});
-        this.state.$selector.select2({data: initData});
-        this.state.$selector.select2('val', initData[0].id);
-        this.state.$selector.on("change", this.changeFunc);
+            {id: "Jordan Walke", text: "select2"}];
+            //when real dom is created, $selector is desided
+        var $selector = $(this.getDOMNode())
+        this.setState({$selector:$selector});
+        $selector.select2({data: initData});
+        $selector.select2('val', initData[0].id);
+        $selector.on("change", this.changeFunc);
     },
     render: function() {
         console.log("recreate select2");

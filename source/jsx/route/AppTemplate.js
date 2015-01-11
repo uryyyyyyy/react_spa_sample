@@ -9,17 +9,15 @@ var AppTemplate = React.createClass({
                 <ComponentManu />
                 <OtherManu />
             </ul>
-            <section id="login_logout_form" className="navbar-form navbar-right">
-            <LoginForm />
-            </section>
+            <LoginLogout />
             </header>
 
             <ReactRouter.RouteHandler />
 
             <footer className="footer">
-            <p> supported by uryyyyyyy </p>
+            <p children="supported by uryyyyyyy" />
             </footer>
             </section>
-    );
-}
+        );
+    }
 });
