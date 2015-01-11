@@ -1,27 +1,42 @@
 /** @jsx React.DOM */
 var ComponentsTemplate = React.createClass({
     mixins: [ ReactRouter.State ],
-    checkActive: function(selecter){
-        if(selecter === "inbox2"){
-            return "list-group-item active";
-        }else{
-            return"list-group-item";
+    getInitialState: function() {
+        return {activeComponent: ''};
+    },
+    checkActive: function(selecter, selectedComponent){
+        return (selecter === selectedComponent)?
+        "list-group-item active" : "list-group-item"
+    },
+    selectComponent: function(component){
+        switch (component){
+            case 'markdown':
+                return (<MarkdownPage />);
+                break;
+            default:
+                return (<NotFoundPage />);
+                break;
         }
     },
-     render: function () {
+    render: function () {
+        var selectedComponent = this.getParams().component;
         return (
             <section className="container">
-            <PTag text="Components"/>
+            <p children="Components"/>
             <div className="row">
             <div className="col-sm-4 list-group">
-                <a href="#" className={this.checkActive("inbox2")}>
-            Cras justo odio</a>
-                <a href="#" className={this.checkActive("inbox")}>Dapibus ac facilisis in</a>
-                <a href="#" className={this.checkActive("inbox")}>Morbi leo risus</a>
+                <a href="#/components/markdown"
+                className={this.checkActive("markdown", selectedComponent)}
+                children='markdown' />
+                <a href="#/components/inbox"
+                className={this.checkActive("inbox", selectedComponent)}
+                children='inbox' />
+                <a href="#/components/inbox2"
+                className={this.checkActive("inbox2", selectedComponent)}
+                children='inbox2' />
             </div>
-            <div className="col-sm-8">
-                <ReactRouter.RouteHandler />
-            </div>
+            <div className="col-sm-8"
+            children={this.selectComponent(selectedComponent)} />
             </div>
             </section>
     );
