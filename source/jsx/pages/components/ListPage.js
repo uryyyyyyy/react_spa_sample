@@ -4,16 +4,16 @@ var ListPage = React.createClass({
     getInitialState: function () {
         var PRODUCTS = [
         {
-            "id": 1, "name": "Bag of suck", "price": 100,
-            "details": "You don't want to own this!"
+            "id": 1, "name": "Bag1", "price": 100,
+            "details": "your detail1"
         },
         {
-            "id": 2, "name": "Bag of luck", "price": 200,
-            "details": "You might want to own this!"
+            "id": 2, "name": "Bag2", "price": 200,
+            "details": "your detail1"
         },
         {
-            "id": 3, "name": "Bag of fuck", "price": 300,
-            "details": "You really want to own this!"
+            "id": 3, "name": "Bag3", "price": 300,
+            "details": "your detail1"
         }
         ];
         return { prods:PRODUCTS};
