@@ -19,6 +19,8 @@ var ComponentsTemplate = React.createClass({
                 return (<ReactablePage />);
             case 'select2':
                 return (<Select2Page />);
+            case 'list':
+                return (<ListPage />);
             default:
                 return (<NotFoundPage />);
         }
@@ -48,6 +50,9 @@ var ComponentsTemplate = React.createClass({
                 <a href='#/components/select2'
                 className={this.checkActive('select2', selectedComponent)}
                 children='select2' />
+                <a href='#/components/list'
+                className={this.checkActive('list', selectedComponent)}
+                children='list' />
             </div>
             <div className='col-sm-8'
             children={this.selectComponent(selectedComponent)} />
