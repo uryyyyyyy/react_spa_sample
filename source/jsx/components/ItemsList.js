@@ -6,32 +6,34 @@ var ItemsList = React.createClass({
             expandedProductId: null
         };
     },
-
     handleProductClick: function(product) {
-        var newSelectedProductId = product.id;
         if (this.state.expandedProductId === product.id) {
-            newSelectedProductId = null;
+            this.setState({expandedProductId: null});
+        }else{
+            this.setState({expandedProductId: product.id});
         }
-        this.setState({expandedProductId: newSelectedProductId});
     },
-    checkExpanded: function(isExpanded, product){
-        if (isExpanded) {
+    checkExpanded: function(product){
+        if (this.state.expandedProductId === product.id) {
             return(<div>{product.details}</div>);
         }else{
             return(<div></div>);
         }
     },
+    addStyle: function(product){
+        if (this.state.expandedProductId === product.id) {
+            return {color: 'black'};
+        }else{
+            return {color: 'gray'};
+        }
+    },
     func: function(product){
-        var details
-        var noneSelected = this.state.expandedProductId === null;
-        var isExpanded = this.state.expandedProductId === product.id;
-
         return (
             <li key={product.id}
             onClick={this.handleProductClick.bind(this, product)}
-            className={isExpanded || noneSelected ? '' : 'collapsed'}>
+            style={this.addStyle(product)}>
             {product.name} ({product.price})
-        {this.checkExpanded(isExpanded, product)}
+            {this.checkExpanded(product)}
             </li>
         );
     },
